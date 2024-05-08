@@ -1,2 +1,3 @@
-rootProject.name = 'recipe-finder'
-
+rootProject.name = 'magical-beans-and-mystery'
+include 'spring-framework-core-functionality'
+include 'spring-framework-web-app'
