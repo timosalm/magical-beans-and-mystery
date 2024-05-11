@@ -1,0 +1,18 @@
+services:
+  web:
+    #image: "bitnami/tomcat"
+    image: "tomcat"
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./build/libs/spring-framework-data-access-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/ROOT.war"
+    depends_on:
+      - db
+  db:
+    image: "bitnami/postgresql"
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./src/main/resources:/docker-entrypoint-initdb.d"
+    environment:
+      POSTGRES_PASSWORD: spring

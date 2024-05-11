@@ -1,3 +1,4 @@
 rootProject.name = 'magical-beans-and-mystery'
 include 'spring-framework-core-functionality'
 include 'spring-framework-web-app'
+include 'spring-framework-data-access'

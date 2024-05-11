@@ -1,0 +1,36 @@
+plugins {
+    id "java"
+    id "war"
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+ext {
+    set('springVersion', "6.1.6")
+    set('jacksonVersion', "2.15.3")
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation "org.springframework:spring-webmvc:$springVersion"
+    implementation "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+
+    implementation "org.springframework:spring-jdbc:$springVersion"
+    runtimeOnly 'org.hsqldb:hsqldb:2.7.2'
+    runtimeOnly 'org.postgresql:postgresql:42.7.3'
+
+    testImplementation "org.springframework:spring-test:$springVersion"
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

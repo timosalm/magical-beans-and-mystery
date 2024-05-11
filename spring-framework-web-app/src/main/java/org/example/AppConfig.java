@@ -16,16 +16,4 @@ import java.util.List;
 @Configuration
 public class AppConfig {
 
-    @Profile("!vegetarian")
-    @Bean
-    List<Recipe> recipes() {
-        return Collections.singletonList(new Recipe("Burger"));
-    }
-
-    //  export spring_profiles_active=vegetarian
-    @Profile("vegetarian")
-    @Bean(name = "recipes")
-    List<Recipe> vegetarianRecipes() {
-        return Collections.singletonList(new Recipe("Salad"));
-    }
 }
