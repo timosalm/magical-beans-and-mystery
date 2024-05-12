@@ -12,3 +12,8 @@ docker run -d -p 8080:8080 -v $(pwd)/spring-framework-web-app/build/libs/spring-
 (cd spring-framework-data-access  && docker compose up)
 ```
 
+## Spring Boot example
+```
+./gradlew assemble -p spring-boot
+(cd spring-boot  && docker compose up)
+```

@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class RecipesResource {
+public class RecipeResource {
 
     private final RecipeService recipeService;
 
-    public RecipesResource(RecipeService recipeService) {
+    public RecipeResource(RecipeService recipeService) {
         this.recipeService = recipeService;
     }
 
