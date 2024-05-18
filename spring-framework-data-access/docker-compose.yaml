@@ -6,6 +6,8 @@ services:
       - "8080:8080"
     volumes:
       - "./build/libs/spring-framework-data-access-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/ROOT.war"
+    environment:
+      SPRING_PROFILES_ACTIVE: production
     depends_on:
       - db
   db:

@@ -1,4 +1,4 @@
 package org.example;
 
-public record Recipe(Integer id, String name) {
+public record Recipe(Long id, String name) {
 }

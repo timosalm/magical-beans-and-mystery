@@ -1,5 +1,6 @@
 package org.example;
 
+import org.springframework.data.util.Streamable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,6 @@ public class RecipeService {
         this.repository = repository;
     }
     public List<Recipe> fetchRecipes() {
-        return repository.fetchRecipes();
+        return repository.findAll();
     }
 }
