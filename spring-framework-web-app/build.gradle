@@ -6,6 +6,10 @@ plugins {
 group = 'org.example'
 version = '1.0-SNAPSHOT'
 
+java {
+    sourceCompatibility = '21'
+}
+
 ext {
     set('springVersion', "6.1.6")
     set('jacksonVersion', "2.15.3")

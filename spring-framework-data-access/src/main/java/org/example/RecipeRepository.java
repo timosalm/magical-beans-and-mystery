@@ -16,7 +16,7 @@ public class RecipeRepository {
 
     public List<Recipe> fetchRecipes() {
         return jdbcClient.sql("SELECT * FROM RECIPE").query(
-                (rs, rowNum) -> new Recipe(rs.getInt("id"), rs.getString("name"))
+                (rs, rowNum) -> new Recipe(rs.getLong("id"), rs.getString("name"))
         ).list();
     }
 

@@ -1,6 +1,5 @@
-import org.example.AppConfig;
-import org.example.Recipe;
-import org.junit.jupiter.api.Assertions;
+package org.example;
+
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

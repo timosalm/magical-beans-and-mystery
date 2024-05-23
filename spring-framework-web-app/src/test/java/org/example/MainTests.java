@@ -1,3 +1,5 @@
+package org.example;
+
 import org.example.AppConfig;
 import org.example.Recipe;
 import org.junit.jupiter.api.Assertions;
@@ -14,10 +16,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//@SpringJUnitConfig(classes = AppConfig.class)
 @ActiveProfiles("default")
-@ContextConfiguration(classes = AppConfig.class)
-@ExtendWith(SpringExtension.class) // SpringExtension integrates the Spring TestContext Framework into JUnit 5's Jupiter programming model
+@SpringJUnitConfig(classes = AppConfig.class)
 public class MainTests {
 
     @Test
