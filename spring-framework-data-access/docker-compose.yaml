@@ -1,6 +1,5 @@
 services:
   web:
-    #image: "bitnami/tomcat"
     image: "tomcat"
     ports:
       - "8080:8080"
@@ -15,6 +14,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - "./src/main/resources:/docker-entrypoint-initdb.d"
+      - "./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./src/main/resources/data.sql:/docker-entrypoint-initdb.d/2.sql"
     environment:
       POSTGRES_PASSWORD: spring

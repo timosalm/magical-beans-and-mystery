@@ -10,8 +10,8 @@ java {
     sourceCompatibility = '21'
 }
 ext {
-    set('springVersion', "6.1.6")
-    set('jacksonVersion', "2.15.3")
+    set('springVersion', "6.1.8")
+    set('jacksonVersion', "2.17.1")
 }
 
 repositories {
@@ -30,7 +30,7 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql:42.7.3'
 
     testImplementation "org.springframework:spring-test:$springVersion"
-    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
