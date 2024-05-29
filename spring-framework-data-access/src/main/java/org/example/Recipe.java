@@ -1,4 +1,10 @@
 package org.example;
 
-public record Recipe(Long id, String name) {
+import org.springframework.lang.Nullable;
+
+public record Recipe(@Nullable Long id, String name) {
+
+    public Recipe(String name) {
+        this(null, name);
+    }
 }
