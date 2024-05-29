@@ -6,31 +6,39 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-//@SpringJUnitConfig(classes = AppConfig.class)
 @ActiveProfiles("default")
+//@SpringJUnitConfig(classes = AppConfig.class)
 @ContextConfiguration(classes = AppConfig.class)
 @ExtendWith(SpringExtension.class) // SpringExtension integrates the Spring TestContext Framework into JUnit 5's Jupiter programming model
-public class MainTests {
+class RecipeServiceTests {
 
     @Test
-    void listOfRecipesIncludesBurger(@Autowired List<Recipe> recipes) {
+    void listOfRecipesIncludesBurger(@Autowired RecipeService recipeService) {
+        var recipes = recipeService.fetchRecipes();
+        assertEquals(recipes.size(), 1);
         assertEquals(1, recipes.stream().filter(recipe -> recipe.name().equals("Burger")).count());
     }
 
     @Nested
-    @ActiveProfiles("vegetarian")
-    class VegetarianRecipes {
+    @ActiveProfiles("production")
+    @TestPropertySource(properties = """
+            recipes = Burger,Salad
+            """)
+    class ProductionRecipes {
 
         @Test
-        void listOfRecipesIncludesSaladAndNotBurgerForVegetarians(@Autowired List<Recipe> recipes) {
-            assertEquals(0, recipes.stream().filter(recipe -> recipe.name().equals("Burger")).count());
+        void listOfRecipesIncludesSaladAndBurgerForProduction(@Autowired RecipeService recipeService) {
+            var recipes = recipeService.fetchRecipes();
+            assertEquals(recipes.size(), 2);
+            assertEquals(1, recipes.stream().filter(recipe -> recipe.name().equals("Burger")).count());
             assertEquals(1, recipes.stream().filter(recipe -> recipe.name().equals("Salad")).count());
         }
     }

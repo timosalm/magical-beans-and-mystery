@@ -8,7 +8,17 @@ import java.util.List;
 @Service
 public class RecipeService {
 
+    private final List<Recipe> recipes;
+
+    public RecipeService(List<Recipe> recipes) {
+        this.recipes = recipes;
+    }
+
     List<Recipe> fetchRecipes() {
-        return Collections.singletonList(new Recipe("Burger"));
+        return this.recipes;
+    }
+
+    public void addRecipes(List<Recipe> newRecipes) {
+        this.recipes.addAll(newRecipes);
     }
 }

@@ -28,8 +28,10 @@ dependencies {
     compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
 
     testImplementation "org.springframework:spring-test:$springVersion"
+    testImplementation "org.springframework:spring-webflux:$springVersion"
     testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.eclipse.jetty:jetty-server:11.0.14', 'jakarta.servlet:jakarta.servlet-api:6.0.0', 'com.jayway.jsonpath:json-path:2.9.0'
 }
 
 test {

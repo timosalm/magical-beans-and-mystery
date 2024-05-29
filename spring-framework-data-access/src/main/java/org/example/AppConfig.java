@@ -46,7 +46,7 @@ public class AppConfig {
 
     @Bean
     public PlatformTransactionManager txManager(DataSource dataSource) {
-        return new DataSourceTransactionManager(dataSource());
+        return new DataSourceTransactionManager(dataSource);
     }
 
     @Bean
