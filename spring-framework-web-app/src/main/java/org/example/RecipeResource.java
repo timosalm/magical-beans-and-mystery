@@ -1,6 +1,7 @@
 package org.example;
 
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,8 +30,8 @@ public class RecipeResource {
     }
 
     @PostMapping
-    public ResponseEntity<List<Recipe>> addRecipes(@RequestBody List<Recipe> newRecipes) {
+    public ResponseEntity<Void> addRecipes(@RequestBody List<Recipe> newRecipes) {
         recipeService.addRecipes(newRecipes);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

@@ -2,6 +2,7 @@ package org.example;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 // Spring IoC Container - Auto-configuration with stereotyped annotations
@@ -11,7 +12,7 @@ public class RecipeService {
     private final List<Recipe> recipes;
 
     public RecipeService(List<Recipe> recipes) {
-        this.recipes = recipes;
+        this.recipes = new ArrayList<>(recipes);
     }
 
     List<Recipe> fetchRecipes() {
