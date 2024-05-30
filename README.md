@@ -1,5 +1,7 @@
 # Demo Application for the Magical Beans and Mystery Talk
 
+[Slides](slides.pdf)
+
 ## Spring Framework Web MVC example
 ```
 ./gradlew assemble -p spring-framework-web-app
@@ -23,7 +25,7 @@ Open `http://localhost:8080/api/v1/recipes` in your browser.
 or
 ```
 ./gradlew assemble -p spring-boot
-(cd spring-boot  && docker compose up)
+(cd spring-boot && docker compose up)
 ```
 
 Open `http://localhost:8080/api/v1/recipes` in your browser.
