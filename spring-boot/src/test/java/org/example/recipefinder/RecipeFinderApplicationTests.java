@@ -2,6 +2,7 @@ package org.example.recipefinder;
 
 import org.example.RecipeService;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
@@ -12,8 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class RecipeFinderApplicationTests {
 
 	@Test
-	void contextLoads(ApplicationContext applicationContext) {
-		var recipeService = applicationContext.getBean(RecipeService.class);
+	void contextLoads(@Autowired RecipeService recipeService) {
 		var recipes = recipeService.fetchRecipes();
 		assertEquals(4, recipes.size());
 	}
