@@ -32,18 +32,14 @@ class RecipeServiceTests {
     }
 
     @Test
-    void shouldInsertNewRecipes() {
-        assertEquals(JdbcTestUtils.countRowsInTable(jdbcClient, "recipe"), 4);
-        service.addRecipes(List.of(new Recipe("Salad"), new Recipe("Tacos")));
-        assertEquals(JdbcTestUtils.countRowsInTable(jdbcClient, "recipe"), 6);
-    }
-
-    @Test
     void shouldRollBackTransactionAfterException() {
         assertEquals(JdbcTestUtils.countRowsInTable(jdbcClient, "recipe"), 4);
+        service.addRecipes(List.of(new Recipe(UUID.randomUUID().toString()), new Recipe(UUID.randomUUID().toString())));
+        assertEquals(JdbcTestUtils.countRowsInTable(jdbcClient, "recipe"), 6);
+
         assertThrows(DataAccessException.class, () -> {
-            service.addRecipes(List.of(new Recipe("Salad"), new Recipe(null)));
-            assertEquals(JdbcTestUtils.countRowsInTable(jdbcClient, "recipe"), 4);
+            service.addRecipes(List.of(new Recipe(UUID.randomUUID().toString()), new Recipe(null)));
+            assertEquals(JdbcTestUtils.countRowsInTable(jdbcClient, "recipe"), 6);
         });
     }
 

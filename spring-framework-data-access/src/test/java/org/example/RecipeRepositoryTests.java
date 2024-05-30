@@ -36,13 +36,14 @@ class RecipeRepositoryTests {
 
     @Test
     void shouldInsertNewRecipes() {
+        var newRecipeName = UUID.randomUUID().toString();
         assertEquals(JdbcTestUtils.countRowsInTable(jdbcClient, "recipe"), 4);
-        repository.insertRecipe("Taco");
+        repository.insertRecipe(newRecipeName);
         assertEquals(JdbcTestUtils.countRowsInTable(jdbcClient, "recipe"), 5);
         var recipes = repository.fetchRecipes();
-        var taco = recipes.stream().filter(r -> r.name().equals("Taco")).findFirst();
-        assertTrue(taco.isPresent());
-        assertNotNull(taco.get().id());
+        var newRecipe = recipes.stream().filter(r -> r.name().equals(newRecipeName)).findFirst();
+        assertTrue(newRecipe.isPresent());
+        assertNotNull(newRecipe.get().id());
     }
 
     @AfterEach
