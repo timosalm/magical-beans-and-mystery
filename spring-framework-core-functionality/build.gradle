@@ -17,7 +17,6 @@ repositories {
 mainClassName = 'org.example.Main'
 
 dependencies {
-
     implementation 'org.springframework:spring-context:6.1.8'
 
     testImplementation 'org.springframework:spring-test:6.1.8'

@@ -5,6 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -21,6 +22,7 @@ public class Main {
         // Environment Abstraction - Profiles
         var env =  applicationContext.getEnvironment().getActiveProfiles();
         System.out.println("\nActive profiles: " + Arrays.asList(env));
+        System.out.println("Recipes: " + applicationContext.getBean(List.class));
 
         // Environment Abstraction - Properties
         var propertyValue = applicationContext.getEnvironment().getProperty("recipes");
