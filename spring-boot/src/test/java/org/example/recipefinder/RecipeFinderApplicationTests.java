@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// Unit and Integration Testing with Spring Boot
 @SpringBootTest
 class RecipeFinderApplicationTests {
 
