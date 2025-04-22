@@ -1,4 +1,4 @@
-package org.example;
+package org.example.recipefinder;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -6,19 +6,19 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class RecipeService {
+class RecipeService {
 
     private final RecipeRepository repository;
 
-    public RecipeService(RecipeRepository repository) {
+    RecipeService(RecipeRepository repository) {
         this.repository = repository;
     }
-    public List<Recipe> fetchRecipes() {
+    List<Recipe> fetchRecipes() {
         return repository.findAll();
     }
 
     @Transactional
-    public void addRecipes(List<Recipe> recipes) {
+    void addRecipes(List<Recipe> recipes) {
         repository.saveAll(recipes);
     }
 }

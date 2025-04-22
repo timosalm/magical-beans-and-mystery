@@ -11,8 +11,8 @@ java {
 }
 
 ext {
-    set('springVersion', "6.1.8")
-    set('jacksonVersion', "2.17.1")
+    set('springVersion', "6.2.5")
+    set('jacksonVersion', "2.18.3")
 
 }
 
@@ -21,7 +21,6 @@ repositories {
 }
 
 dependencies {
-
     implementation "org.springframework:spring-webmvc:$springVersion"
     implementation "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
     implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
@@ -29,9 +28,9 @@ dependencies {
 
     testImplementation "org.springframework:spring-test:$springVersion"
     testImplementation "org.springframework:spring-webflux:$springVersion"
-    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation platform('org.junit:junit-bom:5.11.4')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    testImplementation 'org.eclipse.jetty:jetty-server:11.0.14', 'jakarta.servlet:jakarta.servlet-api:6.0.0', 'com.jayway.jsonpath:json-path:2.9.0'
+    testImplementation 'org.eclipse.jetty:jetty-server:11.0.25', 'jakarta.servlet:jakarta.servlet-api:6.0.0', 'com.jayway.jsonpath:json-path:2.9.0'
 }
 
 test {

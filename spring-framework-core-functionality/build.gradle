@@ -10,6 +10,10 @@ java {
     sourceCompatibility = '21'
 }
 
+ext {
+    set('springVersion', "6.2.6")
+}
+
 repositories {
     mavenCentral()
 }
@@ -17,10 +21,10 @@ repositories {
 mainClassName = 'org.example.Main'
 
 dependencies {
-    implementation 'org.springframework:spring-context:6.1.8'
+    implementation "org.springframework:spring-context:$springVersion"
 
-    testImplementation 'org.springframework:spring-test:6.1.8'
-    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation "org.springframework:spring-test:$springVersion"
+    testImplementation platform('org.junit:junit-bom:5.11.4')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 

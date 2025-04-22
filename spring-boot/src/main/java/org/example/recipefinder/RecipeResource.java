@@ -1,4 +1,4 @@
-package org.example;
+package org.example.recipefinder;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,22 +12,22 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/recipes")
-public class RecipeResource  {
+class RecipeResource  {
 
     private final RecipeService recipeService;
 
-    public RecipeResource(RecipeService recipeService) {
+    RecipeResource(RecipeService recipeService) {
         this.recipeService = recipeService;
     }
 
     @GetMapping
-    public ResponseEntity<List<Recipe>> fetchRecipes() {
+    ResponseEntity<List<Recipe>> fetchRecipes() {
         var recipes = recipeService.fetchRecipes();
         return ResponseEntity.ok(recipes);
     }
 
     @PostMapping
-    public ResponseEntity<Void> addRecipes(@RequestBody List<Recipe> newRecipes) {
+    ResponseEntity<Void> addRecipes(@RequestBody List<Recipe> newRecipes) {
         recipeService.addRecipes(newRecipes);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

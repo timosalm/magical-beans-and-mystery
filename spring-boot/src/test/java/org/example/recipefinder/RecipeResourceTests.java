@@ -1,14 +1,11 @@
 package org.example.recipefinder;
 
-import org.example.Recipe;
-import org.example.RecipeResource;
-import org.example.RecipeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.test.web.servlet.client.MockMvcWebTestClient;
@@ -23,7 +20,7 @@ import java.util.UUID;
 @ExtendWith(SpringExtension.class)
 class RecipeResourceTests {
 
-    @MockBean
+    @MockitoBean
     RecipeService recipeServiceMock;
     List<Recipe> recipes;
 

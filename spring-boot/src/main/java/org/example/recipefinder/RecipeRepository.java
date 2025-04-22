@@ -1,10 +1,10 @@
-package org.example;
+package org.example.recipefinder;
 
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
 
 // Spring Boot for Data Access
 @Repository
-public interface RecipeRepository extends ListCrudRepository<Recipe, Long> {
+interface RecipeRepository extends ListCrudRepository<Recipe, Long> {
 
 }

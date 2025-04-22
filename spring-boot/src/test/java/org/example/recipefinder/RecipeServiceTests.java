@@ -1,7 +1,5 @@
 package org.example.recipefinder;
 
-import org.example.Recipe;
-import org.example.RecipeService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
