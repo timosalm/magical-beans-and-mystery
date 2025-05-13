@@ -11,7 +11,7 @@ java {
 }
 
 ext {
-    set('springVersion', "6.2.5")
+    set('springVersion', "6.2.6")
     set('jacksonVersion', "2.18.3")
 
 }
