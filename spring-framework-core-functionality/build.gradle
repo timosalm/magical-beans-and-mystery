@@ -18,7 +18,9 @@ repositories {
     mavenCentral()
 }
 
-mainClassName = 'org.example.Main'
+application {
+    mainClass = 'org.example.Main'
+}
 
 dependencies {
     implementation "org.springframework:spring-context:$springVersion"
